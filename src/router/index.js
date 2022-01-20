@@ -6,6 +6,10 @@ const routes = [
     redirect: '/folder/Inbox'
   },
   {
+    path: '/videos/:id',
+    component: () => import ('../views/Video.vue')
+  },
+  {
     path: '/folder/:id',
     component: () => import ('../views/Folder.vue')
   }
