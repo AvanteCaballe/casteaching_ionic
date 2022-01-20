@@ -5,21 +5,21 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>Video {{ $route.params.id }}</ion-title>
+        <ion-title>NOT FOUND</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Video {{ $route.params.id }}</ion-title>
+          <ion-title size="large">ERROR</ion-title>
         </ion-toolbar>
       </ion-header>
 
       <div id="container">
-        <strong class="capitalize"> Video {{ $route.params.id }}</strong>
+        <strong class="capitalize"> 404 NOT FOUND</strong>
 
-        <p> TODO VIDEO</p>
+        <p> TODO 404</p>
       </div>
     </ion-content>
   </ion-page>
@@ -63,4 +63,4 @@ export default {
 #container a {
   text-decoration: none;
 }
-</style>
+</style> 
