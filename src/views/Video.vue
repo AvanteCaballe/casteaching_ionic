@@ -5,7 +5,7 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>Video {{ $route.params.id }}</ion-title>
+        <ion-title>{{ video.title }}</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -17,18 +17,40 @@
       </ion-header>
 
       <div id="container">
-        <strong class="capitalize"> Video {{ $route.params.id }}</strong>
+        <iframe id="video" :src="video.url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ video.title }}</ion-card-title>
+            <ion-card-subtitle>{{ video.published_at }}</ion-card-subtitle>
+          </ion-card-header>
 
-        <p> TODO VIDEO</p>
+          <ion-card-content>
+            {{ video.description }}
+          </ion-card-content>
+        </ion-card>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import casteaching from '@acacha/casteaching'
+import {
+  IonButtons,
+  IonCard,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCardContent,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from '@ionic/vue';
 export default {
-  name: 'Folder',
+  name: 'Video',
   components: {
     IonButtons,
     IonContent,
@@ -36,31 +58,27 @@ export default {
     IonMenuButton,
     IonPage,
     IonTitle,
-    IonToolbar
+    IonToolbar,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonCardContent
+  },
+  data() {
+    return {
+      video: {}
+    }
+  },
+  async created() {
+    this.video = await casteaching.video.show(this.$route.params.id)
   }
 }
 </script>
 
 <style scoped>
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-#container a {
-  text-decoration: none;
+#video {
+  width:100%;
+  height:70vh;
 }
 </style>

@@ -6,12 +6,16 @@ const routes = [
     redirect: '/folder/Inbox'
   },
   {
+    path: '/folder/:id',
+    component: () => import ('../views/Folder.vue')
+  },
+  {
     path: '/videos/:id',
     component: () => import ('../views/Video.vue')
   },
   {
-    path: '/folder/:id',
-    component: () => import ('../views/Folder.vue')
+    path: '/videos',
+    component: () => import ('../views/Videos.vue')
   },
   // {
   //   path: '/:pathMatch(.*)*',
