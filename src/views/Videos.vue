@@ -147,8 +147,7 @@ export default {
       this.refresher.complete();
     },
     async fetchVideos() {
-      this.videos = await casteaching.videos()
-    }
+      this.videos = await casteaching({baseUrl:'http://casteaching.test/api'}).videos();    }
   }
 }
 </script>
