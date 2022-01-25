@@ -1,5 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import mitt from 'mitt';
+const emitter = mitt();
+import casteaching from '@acacha/casteaching'
 import router from './router';
 
 import { IonicVue } from '@ionic/vue';
@@ -28,5 +31,7 @@ const app = createApp(App)
   .use(router);
   
 router.isReady().then(() => {
+  app.config.globalProperties.emitter = emitter;
+  app.config.globalProperties.casteaching = casteaching({baseUrl:'http://casteaching.test/api'});
   app.mount('#app');
 });

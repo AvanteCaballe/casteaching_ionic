@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import casteaching from '@acacha/casteaching'
 import {
   IonButtons,
   IonCard,
@@ -71,7 +70,11 @@ export default {
     }
   },
   async created() {
-    this.video = await casteaching({baseUrl:"http://casteaching.test/api"}).video.show(this.$route.params.id)
+    try {
+      this.video = await this.casteaching.video.show(this.$route.params.id)
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 </script>

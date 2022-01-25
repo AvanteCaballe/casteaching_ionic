@@ -115,7 +115,6 @@ import {
   IonContent,
   IonSkeletonText
 } from "@ionic/vue";
-import casteaching from '@acacha/casteaching'
 export default {
   name: "Videos",
   components: {
@@ -147,7 +146,12 @@ export default {
       this.refresher.complete();
     },
     async fetchVideos() {
-      this.videos = await casteaching({baseUrl:'http://casteaching.test/api'}).videos();    }
+      try {
+        this.videos = await this.casteaching.videos()
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 }
 </script>
