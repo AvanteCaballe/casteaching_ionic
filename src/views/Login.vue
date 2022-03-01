@@ -103,7 +103,7 @@ import store from "../store";export default {
       this.emitter.emit('login',user)
       let path = '/user'
       if(this.$route.params && this.$route.params.wantedRoute) path = this.$route.params.wantedRoute
-      this.$router.push({ path })
+      await this.$router.push({ path })
     }
   }
 }
