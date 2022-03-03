@@ -2,7 +2,7 @@
 
 Aquest repositori és una plantilla de Ionic sense Typescript i amb sidebar per explicar Vue Router i utilitzar com inici de la sèrie Ionic Real World.
 
-El codi original el podeu trobar a https://https://github.com/acacha/casteachingIonic
+El codi original el podeu trobar a https://github.com/acacha/casteachingIonic
 
 # Casteaching
 
