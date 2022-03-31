@@ -14,15 +14,6 @@
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
-  
-          <ion-list id="labels-list">
-            <ion-list-header>Labels</ion-list-header>
-  
-            <ion-item v-for="(label, index) in labels" lines="none" :key="index">
-              <ion-icon slot="start" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
-              <ion-label>{{ label }}</ion-label>
-            </ion-item>
-          </ion-list>
         </ion-content>
       </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
@@ -32,7 +23,7 @@
 
 <script>
 import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
-import { defineComponent, ref } from 'vue';
+import { defineComponent} from 'vue';
 import { useRoute } from 'vue-router';
 import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 import store from "./store";
@@ -55,6 +46,7 @@ export default defineComponent({
   },
   data() {
     return {
+      selectedIndex: null,
       appPages: []
     }
   },
@@ -70,15 +62,9 @@ export default defineComponent({
     this.setAppPages()
   },
   setup() {
-    const selectedIndex = ref(0);
-
-    const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-    
     const route = useRoute();
     
-    return { 
-      selectedIndex,
-      labels,
+    return {
       archiveOutline, 
       archiveSharp, 
       bookmarkOutline, 

@@ -91,12 +91,14 @@ import store from "../store";export default {
         this.casteaching.setToken(token)
       } catch (error) {
         console.log(error);
+        return
       }
       let user
       try {
         user = await this.casteaching.user()
       } catch (error) {
         console.log(error);
+        return
       }
       await store.set('token', token)
       await store.set('user', user)
