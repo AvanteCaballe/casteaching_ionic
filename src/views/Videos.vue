@@ -1,4 +1,5 @@
 <template>
+  <ion-page>
   <ion-content>
     <ion-refresher slot="fixed" @ion-refresh="refresh" id="refresher">
       <ion-refresher-content></ion-refresher-content>
@@ -101,6 +102,7 @@
       </ion-item>
     </ion-list>
   </ion-content>
+  </ion-page>
 </template>
 
 <script>
@@ -113,7 +115,8 @@ import {
   IonRefresher,
   IonRefresherContent,
   IonContent,
-  IonSkeletonText
+  IonSkeletonText,
+  IonPage
 } from "@ionic/vue";
 export default {
   name: "Videos",
@@ -126,7 +129,9 @@ export default {
     IonRefresher,
     IonRefresherContent,
     IonContent,
-    IonSkeletonText,  },
+    IonSkeletonText,
+    IonPage
+  },
   data() {
     return {
       videos: [],
